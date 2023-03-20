@@ -169,6 +169,7 @@ if __name__ == "__main__":
                             newvalues = {"$set": {"totp_key": totp_key}}
                             coll.update_one(myquery, newvalues)
 
+                        st.header("Your Accounts")
                         df = pd.DataFrame(
                             list(coll.find({"email_id": session_state.user_email})),
                             columns=["broker_name", "user_id", "totp_key"],
